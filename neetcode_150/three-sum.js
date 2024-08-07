@@ -36,26 +36,45 @@
  **/
 
 function threeSum(nums) {
+  let sorted = nums.sort((a,b) => a-b);
   let res = [];
 
-  for (let i = 0; i < nums.length; i++) {
-    let pivot = nums[i];
-    let l = i == 0 ? 1 : 0;
-    let r = (i == nums.length) - 1 ? nums.length - 2 : nums.length;
+  for (let i = 0; i < sorted.length; i++) {
+    if (nums[i] > 0) break                        //<============== This is optimization
+    if (i > 0 && sorted[i] == sorted[i - 1]) {
+      continue
+    }
+
+    let l = i + 1
+    let r = sorted.length - 1
 
     while (l < r) {
-      let csum = pivot + nums[l] + nums[r];
-      if (csum > 0 || r == i) r--;
-      else if (csum < 0 || l == i) l++;
-      else res.push([nums[i], nums[l], nums[r]]);
-
-      r--;
-      l++;
+      let sum = sorted[i] + sorted[l] + sorted[r]
+      if (sum > 0) {
+        r--
+      } else if (sum < 0) {
+        l++
+      } else {
+        res.push([sorted[i], sorted[l], sorted[r]])
+        l++
+        r--
+        while (sorted[l] === sorted[l - 1] && l < r) {   //<============== This is optimization
+          l++
+        }
+      }
     }
   }
+
+  // return res
+  // res.forEach((item,idx)=>console.log(item))
   return res;
 }
 
 let input = [-1, 0, 1, 2, -1, -4];
+let input1 = [0, 0, 0, 0];
+let nums = [3, 0, -2, -1, 1, 2];
+let nums1 = [-1, 0, 1, 2, -1, -4, -2, -3, 3, 0, 4];
 
-console.log(threeSum(input));
+let ik = threeSum(input);
+
+console.log(ik);
