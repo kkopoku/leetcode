@@ -65,8 +65,6 @@ function threeSum(nums) {
     }
   }
 
-  // return res
-  // res.forEach((item,idx)=>console.log(item))
   return res;
 }
 
@@ -78,3 +76,6 @@ let nums1 = [-1, 0, 1, 2, -1, -4, -2, -3, 3, 0, 4];
 let ik = threeSum(input);
 
 console.log(ik);
+
+//NB: YOU SHOULD SOLVE THIS AGAIN
+//TODO: TRY USING A SET TO SOLVE THIS
