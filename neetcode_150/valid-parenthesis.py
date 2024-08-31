@@ -10,12 +10,11 @@ def isValid(s: str) -> bool:
         if item not in map:
           stack.append(s[i])
         else:
-          if len(str) == 0:
-            return False
+          if len(str) == 0: return False
           else:
-            if s[i] != map[stack[-1]]:
-              return False
+            if s[i] != map[stack[-1]]: return False
+            stack.pop()
         
-        return len(stack) == 0
+    return len(stack) == 0
 
 print(isValid("{}{}{}{}[]}}"))
