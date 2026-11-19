@@ -8,10 +8,16 @@ function recursion(){
     // i += 1
     // while(i<3) recursion()
 
-    i = []
-    for (let j of i){
-        console.log(j)
-    }
+    i = [1,2,4,5,5,6]
+
+    i.forE
+    
+    // for (let j of i){
+    //     setTimeout(() => {
+    //         console.log(j)
+    //     }, 10000)
+
+    // }
 
     
 }
